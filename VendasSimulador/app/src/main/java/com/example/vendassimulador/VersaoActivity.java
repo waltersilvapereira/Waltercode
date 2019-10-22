@@ -66,6 +66,7 @@ public class VersaoActivity extends AppCompatActivity {
 
                 intent.putExtra("valor", valor);
                 intent.putExtra("descricao", descricao);
+                setResult(1,intent);
                 finish();
 
             }

@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         lblAcessorioSelecionado = findViewById(R.id.lblAcessorioSelecionado);
         lblTotalAcesorio = findViewById(R.id.lblTotalAcessorio);
         lblTotalGeral = findViewById(R.id.lblTotalGeral);
+
+        lblVersao.setOnClickListener(cliqueBotaoVersao);
+        lblVersaoSelecionada.setOnClickListener(cliqueBotaoVersao);
+        lblTotalVersao.setOnClickListener(cliqueBotaoVersao);
     }
 
     View.OnClickListener cliqueBotaoVersao = new View.OnClickListener()
@@ -40,19 +44,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    protected void onCreat(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        lblVersao = findViewById((R.id.lblVersao));
-        lblVersaoSelecionada = findViewById((R.id.lblVersaoSelecionada));
-        lblTotalVersao = findViewById((R.id.lblTotalVersao));
-
-        lblVersao.setOnClickListener(cliqueBotaoVersao);
-        lblVersaoSelecionada.setOnClickListener(cliqueBotaoVersao);
-        lblTotalVersao.setOnClickListener(cliqueBotaoVersao);
-    }
 
     protected  void  onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
@@ -64,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
             String descricao = data.getStringExtra("descricao");
             total = total + valor;
             lblVersaoSelecionada.setText(descricao);
-            lblTotalVersao.setText("R$" + NumberFormat.getCurrencyInstance().format(valor));
+            lblTotalVersao.setText("R" + NumberFormat.getCurrencyInstance().format(valor));
 
         }
-        lblTotalGeral.setText("R$" + NumberFormat.getCurrencyInstance().format(total));
+        lblTotalGeral.setText("R" + NumberFormat.getCurrencyInstance().format(total));
     }
 }
